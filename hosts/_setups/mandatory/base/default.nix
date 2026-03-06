@@ -96,5 +96,5 @@
     # The recommended way is to leave it alone and never change (consider a full
     #   reinstall instead, once in 10 years or so)
     # system.stateVersion = "24.11";
-    system.stateVersion = config.system.nixos.release;
+    system.stateVersion = lib.mkDefault config.system.nixos.release;
 }
