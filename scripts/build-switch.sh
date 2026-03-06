@@ -24,9 +24,6 @@ if ! [ -r ./secrets/password ]; then
 fi
 
 
-
-nix flake update
-
 nixos-rebuild switch \
     --impure \
     --flake "path:.#$(hostname)" \
