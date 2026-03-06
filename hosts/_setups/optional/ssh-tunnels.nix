@@ -53,7 +53,7 @@ in
         fi
       '';
       serviceConfig = {
-        ExecStart = "${pkgs.openssh}/bin/ssh -N -R ${tunnel.remoteForward} -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o ExitOnForwardFailure=yes -i ${tunnel.sshKeyPath} ${tunnel.vpsUser}@${tunnel.vpsHost}";
+        ExecStart = "${pkgs.openssh}/bin/ssh -N -R ${tunnel.remoteForward} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o ExitOnForwardFailure=yes -i ${tunnel.sshKeyPath} ${tunnel.vpsUser}@${tunnel.vpsHost}";
         Restart = "always";
         RestartSec = "10s";
         User = tunnel.user;
