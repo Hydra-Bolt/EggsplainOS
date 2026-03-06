@@ -8,20 +8,20 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usbhid" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/6894d4a4-8a22-4c62-8eb4-ae1d15f7ac52";
+    { device = "/dev/disk/by-uuid/4d7b3ebc-9f91-47c7-b095-64af9e58428d";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/ECE5-ABD3";
+    { device = "/dev/disk/by-uuid/5ABB-C751";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices = [ ];
@@ -31,8 +31,19 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-3474d39fe646.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-3958656b1edd.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-4e1597dfb0e4.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-d21ed11d5af0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-eb8b4c7cd98e.useDHCP = lib.mkDefault true;
   # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker_gwbridge.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.veth26607c6.useDHCP = lib.mkDefault true;
+  # networking.interfaces.vethb2055bd.useDHCP = lib.mkDefault true;
+  # networking.interfaces.vethbe69c6c.useDHCP = lib.mkDefault true;
+  # networking.interfaces.vethde6805e.useDHCP = lib.mkDefault true;
+  # networking.interfaces.vetheade1b2.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp195s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
