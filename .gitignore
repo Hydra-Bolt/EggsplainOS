@@ -2,6 +2,7 @@
 
 !/hosts
 !/scripts
+!/secrets
 !/.gitignore
 !/flake.lock
 !/flake.nix
