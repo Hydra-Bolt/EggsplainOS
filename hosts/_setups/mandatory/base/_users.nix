@@ -5,7 +5,7 @@
         users."${username}" = {
             isNormalUser = true;
             description = username;
-            extraGroups = [ "networkmanager" "wheel" "docker" ];
+            extraGroups = [ "networkmanager" "wheel" "docker" "video" "render" ];
             homeMode = "700";
 
             # If true, the user's shell will be set to `users.defaultUserShell`

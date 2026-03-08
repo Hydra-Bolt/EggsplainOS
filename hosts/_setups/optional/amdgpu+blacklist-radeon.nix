@@ -37,10 +37,16 @@
         enable32Bit = true;
         extraPackages = with pkgs; [
             mesa                        # Open source 3D graphics library
+            rocmPackages.clr.icd        # ROCm OpenCL runtime (ICD loader)
         ];
     };
 
+    # ROCm compute stack — needed for /dev/kfd access from Docker containers
+    hardware.amdgpu.opencl.enable = true;
+
     environment.systemPackages = with pkgs; [
-        mesa                        # Open source 3D graphics library
+        mesa                            # Open source 3D graphics library
+        rocmPackages.rocm-runtime       # HSA/ROCm userspace runtime (/dev/kfd)
+        rocmPackages.rocm-smi-lib       # GPU monitoring (rocm-smi CLI)
     ];
 }
