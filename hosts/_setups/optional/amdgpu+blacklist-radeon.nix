@@ -47,6 +47,6 @@
     environment.systemPackages = with pkgs; [
         mesa                            # Open source 3D graphics library
         rocmPackages.rocm-runtime       # HSA/ROCm userspace runtime (/dev/kfd)
-        rocmPackages.rocm-smi-lib       # GPU monitoring (rocm-smi CLI)
+        rocmPackages.rocm-smi           # GPU monitoring (rocm-smi CLI)
     ];
 }
