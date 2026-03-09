@@ -51,10 +51,14 @@
                     eggsplain-amd-2 =
                         let
                             system = "x86_64-linux";
+                            pkgs-unstable = import inputs.nixpkgs-unstable {
+                                inherit system;
+                                config.allowUnfree = true;
+                            };
                         in
                             nixpkgs.lib.nixosSystem {
                                 inherit system;
-                                specialArgs = { inherit inputs self system username; };
+                                specialArgs = { inherit inputs self system username pkgs-unstable; };
                                 modules = [
                                     ./hosts/eggsplain-amd-2
                                 ];
