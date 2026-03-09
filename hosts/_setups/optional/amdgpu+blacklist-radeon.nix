@@ -29,6 +29,10 @@
             # For Sea Islands (CIK i.e. GCN 2) cards
             "radeon.cik_support=0"
             "amdgpu.cik_support=1"
+
+            # Fix for RDNA 3.5 (gfx1151) memory access faults
+            "amdgpu.noretry=0"
+            "amdgpu.sg_display=0"
         ];
     };
 
@@ -43,6 +47,11 @@
 
     # ROCm compute stack — needed for /dev/kfd access from Docker containers
     hardware.amdgpu.opencl.enable = true;
+
+    environment.variables = {
+        # Force ROCm to treat gfx1151 (RDNA 3.5) as gfx1100 for compatibility
+        HSA_OVERRIDE_GFX_VERSION = "11.0.0";
+    };
 
     environment.systemPackages = with pkgs; [
         mesa                            # Open source 3D graphics library
