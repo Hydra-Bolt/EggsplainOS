@@ -49,8 +49,9 @@
     hardware.amdgpu.opencl.enable = true;
 
     environment.variables = {
-        # Force ROCm to treat gfx1151 (RDNA 3.5) as gfx1100 for compatibility
-        HSA_OVERRIDE_GFX_VERSION = "11.0.0";
+        # Force ROCm to treat gfx1151 (RDNA 3.5 / Strix Halo)
+        HSA_OVERRIDE_GFX_VERSION = "11.5.0";
+        HSA_XNACK = "1";
     };
 
     environment.systemPackages = with pkgs; [
