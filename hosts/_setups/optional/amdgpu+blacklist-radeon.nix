@@ -33,6 +33,12 @@
             # Fix for RDNA 3.5 (gfx1151) memory access faults
             "amdgpu.noretry=0"
             "amdgpu.sg_display=0"
+
+            # IOMMU passthrough — required for APU unified memory with ROCm
+            "iommu=pt"
+
+            # Disable runtime power management (can cause memory faults on APUs)
+            "amdgpu.runpm=0"
         ];
     };
 
