@@ -33,12 +33,6 @@
             # Fix for RDNA 3.5 (gfx1151) memory access faults
             "amdgpu.noretry=0"
             "amdgpu.sg_display=0"
-
-            # IOMMU passthrough — required for APU unified memory with ROCm
-            "iommu=pt"
-
-            # Disable runtime power management (can cause memory faults on APUs)
-            "amdgpu.runpm=0"
         ];
     };
 
@@ -55,9 +49,8 @@
     hardware.amdgpu.opencl.enable = true;
 
     environment.variables = {
-        # Force ROCm to treat gfx1151 (RDNA 3.5 / Strix Halo)
-        HSA_OVERRIDE_GFX_VERSION = "11.5.0";
-        HSA_XNACK = "1";
+        # Force ROCm to treat gfx1151 (RDNA 3.5) as gfx1100 for compatibility
+        HSA_OVERRIDE_GFX_VERSION = "11.0.0";
     };
 
     environment.systemPackages = with pkgs; [
