@@ -139,6 +139,34 @@
                                     ./hosts/eggsplain-nvidia-blkwl
                                 ];
                             };
+
+                    eggsplain-subs-nv-1 =
+                        let
+                            system = "x86_64-linux";
+                        in
+                            nixpkgs.lib.nixosSystem {
+                                inherit system;
+                                specialArgs = { inherit inputs self system username; };
+                                modules = [
+                                    ./hosts/eggsplain-nvidia-ada
+                                ];
+                            };
+
+                    eggsplain-subs-nv-2 =
+                        let
+                            system = "x86_64-linux";
+                            pkgs-unstable = import inputs.nixpkgs-unstable {
+                                inherit system;
+                                config.allowUnfree = true;
+                            };
+                        in
+                            nixpkgs.lib.nixosSystem {
+                                inherit system;
+                                specialArgs = { inherit inputs self system username pkgs-unstable; };
+                                modules = [
+                                    ./hosts/eggsplain-nvidia-blkwl
+                                ];
+                            };
                 };
             };
 }

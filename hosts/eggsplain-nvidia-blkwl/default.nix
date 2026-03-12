@@ -11,16 +11,20 @@
 
         # Optional
         ./../_setups/optional/boot-logo
+        ./../_setups/optional/blacklist-nouveau.nix
         ./../_setups/optional/docker.nix
         ./../_setups/optional/latest-kernel.nix
         ./../_setups/optional/rustdesk.nix
         ./../_setups/optional/gpu-stabilizer.nix
+        ./../_setups/optional/ssh-server.nix
         ./../_setups/optional/ssh-tunnels.nix
     ];
 
     # Networking
     networking.hostName = "eggsplain-nvidia-blkwl";
-    networking.networkmanager.enable = true;
+
+    # License acceptance required for proprietary NVIDIA driver
+    nixpkgs.config.nvidia.acceptLicense = true;
 
     # NVIDIA Blackwell Specifics
     services.xserver.videoDrivers = [ "nvidia" ];
