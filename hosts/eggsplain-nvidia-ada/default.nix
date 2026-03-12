@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }: {
+{ config, lib, pkgs, username, ... }: {
     imports = [
         ./_hardware-configuration.nix
 
@@ -24,10 +24,8 @@
     hardware.nvidia-container-toolkit.enable = true;
 
     # Keyboard and Console
-    services.xserver.xkb = {
-        layout  = "se";
-        variant = "";
-    };
+    services.xserver.xkb.layout = lib.mkForce "se";
+    services.xserver.xkb.variant = lib.mkForce "";
     console.keyMap = "sv-latin1";
 
     # SSH Tunnels
