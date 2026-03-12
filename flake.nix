@@ -148,7 +148,7 @@
                                 inherit system;
                                 specialArgs = { inherit inputs self system username; };
                                 modules = [
-                                    ./hosts/eggsplain-nvidia-ada
+                                    ./hosts/eggsplain-subs-nv-1
                                 ];
                             };
 
@@ -164,7 +164,7 @@
                                 inherit system;
                                 specialArgs = { inherit inputs self system username pkgs-unstable; };
                                 modules = [
-                                    ./hosts/eggsplain-nvidia-blkwl
+                                    ./hosts/eggsplain-subs-nv-2
                                 ];
                             };
                 };
