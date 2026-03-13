@@ -13,7 +13,7 @@
         ./../_setups/optional/boot-logo
         ./../_setups/optional/blacklist-nouveau.nix
         ./../_setups/optional/docker.nix
-        # ./../_setups/optional/latest-kernel.nix
+        ./../_setups/optional/latest-kernel.nix
         ./../_setups/optional/rustdesk.nix
         ./../_setups/optional/gpu-stabilizer.nix
         ./../_setups/optional/ssh-server.nix
@@ -78,4 +78,10 @@
 
     # System Version
     system.stateVersion = "25.11";
+
+    # Disable GNOME suspend to prevent lockups on idle
+    systemd.targets.sleep.enable = false;
+    systemd.targets.suspend.enable = false;
+    systemd.targets.hibernate.enable = false;
+    systemd.targets.hybrid-sleep.enable = false;
 }
