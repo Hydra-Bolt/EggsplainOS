@@ -22,4 +22,7 @@
     boot.initrd.availableKernelModules = [ 
         "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod"
     ];
+
+    # Disable module shrinking if it causes closure errors
+    boot.initrd.includeDefaultModules = true;
 }
