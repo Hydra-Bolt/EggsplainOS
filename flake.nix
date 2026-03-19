@@ -7,7 +7,6 @@
         # Use `nix flake metadata` to monitor inputs and what they follow
 
         nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
-        nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
         # nix-alien = {
         #     url = "github:thiagokokada/nix-alien";
         #     inputs.nixpkgs.follows = "nixpkgs";
