@@ -13,6 +13,7 @@
         ./../_setups/optional/firefox-simple.nix
         ./../_setups/optional/rustdesk.nix
         ./../_setups/optional/ssh-tunnels.nix
+        ./../_setups/optional/ssh-server.nix
         ./../_setups/optional/dokploy.nix
         ./../_setups/optional/sudo-nopasswd.nix
         ./../_setups/optional/latest-kernel.nix
