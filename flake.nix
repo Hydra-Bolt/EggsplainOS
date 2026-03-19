@@ -7,6 +7,7 @@
         # Use `nix flake metadata` to monitor inputs and what they follow
 
         nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+        nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
         # nix-alien = {
         #     url = "github:thiagokokada/nix-alien";
         #     inputs.nixpkgs.follows = "nixpkgs";
@@ -38,10 +39,14 @@
                     eggsplain-amd-1 =
                         let
                             system = "x86_64-linux";
+                            pkgs-unstable = import inputs.nixpkgs-unstable {
+                                inherit system;
+                                config.allowUnfree = true;
+                            };
                         in
                             nixpkgs.lib.nixosSystem {
                                 inherit system;
-                                specialArgs = { inherit inputs self system username; };
+                                specialArgs = { inherit inputs self system username pkgs-unstable; };
                                 modules = [
                                     ./hosts/eggsplain-amd-1
                                 ];
