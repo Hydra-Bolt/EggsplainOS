@@ -18,4 +18,8 @@
     # Since things like external kernel module packages are tied to the
     #   kernel you're using, it also overrides those
     # boot.kernelPackages = pkgs.linuxPackages;
+
+    boot.initrd.availableKernelModules = [ 
+        "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "sr_mod"
+    ];
 }
