@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "sdhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "ext4" "vfat" ];
-  boot.initrd.includeDefaultModules = false;
+  boot.initrd.includeDefaultModules = lib.mkForce false;
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
