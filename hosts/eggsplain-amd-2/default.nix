@@ -17,6 +17,7 @@
         ./../_setups/optional/dokploy.nix
         ./../_setups/optional/sudo-nopasswd.nix
         ./../_setups/optional/latest-kernel.nix
+        ./../_setups/optional/tailscale.nix
     ];
 
     networking.hostName = "eggsplain-amd-2";
