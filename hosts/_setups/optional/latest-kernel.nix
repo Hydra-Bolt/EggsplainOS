@@ -1,3 +1,3 @@
-{ pkgs-unstable, ... }: {
-  boot.kernelPackages = pkgs-unstable.linuxPackages_latest;
+{ pkgs, ... }: {
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }

@@ -8,9 +8,8 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "sdhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "ext4" "vfat" ];
-  boot.initrd.includeDefaultModules = lib.mkForce false;
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "sdhci_pci" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
@@ -23,6 +22,31 @@
     { device = "/dev/disk/by-uuid/5ABB-C751";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  fileSystems."/var/lib/docker/overlay2/c22b46d33e1b08e3f541093f25f38a391d16b33be74aed69edc4962910bf3f80/merged" =
+    { device = "overlay";
+      fsType = "overlay";
+    };
+
+  fileSystems."/var/lib/docker/overlay2/cb4a85605d9a13efdc6d29599bf78cc142fe704d9410c43be1a78eedb6cfdf6a/merged" =
+    { device = "overlay";
+      fsType = "overlay";
+    };
+
+  fileSystems."/var/lib/docker/overlay2/c3538a13e8e7c9f0a56504406bd2915ea30fe9f72b2d60dea727766da1b6cedf/merged" =
+    { device = "overlay";
+      fsType = "overlay";
+    };
+
+  fileSystems."/var/lib/docker/overlay2/211fadfd46032f9559b25312ead0a3eb7104430817503ea54739a5fdb3e1d736/merged" =
+    { device = "overlay";
+      fsType = "overlay";
+    };
+
+  fileSystems."/var/lib/docker/overlay2/32eb9401ac2388be2ab4e6a896108c5fe2dc71ad8bdd6578c0a0e6e6f33ed2c5/merged" =
+    { device = "overlay";
+      fsType = "overlay";
     };
 
   swapDevices = [ ];
