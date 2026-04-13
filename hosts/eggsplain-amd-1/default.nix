@@ -16,6 +16,7 @@
         ./../_setups/optional/ssh-server.nix
         ./../_setups/optional/dokploy.nix
         ./../_setups/optional/sudo-nopasswd.nix
+        ./../_setups/optional/latest-kernel.nix
         ./../_setups/optional/tailscale.nix
     ];
 
