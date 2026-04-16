@@ -11,6 +11,7 @@
         ./../_setups/optional/amdgpu+blacklist-radeon.nix
         ./../_setups/optional/docker.nix
         ./../_setups/optional/firefox-simple.nix
+        ./../_setups/optional/xrdp.nix
         ./../_setups/optional/rustdesk.nix
         ./../_setups/optional/ssh-tunnels.nix
         ./../_setups/optional/ssh-server.nix
