@@ -55,6 +55,7 @@
         vscode
         firefox
         rustdesk
+        alacritty
     ];
 
     # User Account (partially handled by base but extending with packages)
